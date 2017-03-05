@@ -1,7 +1,7 @@
-/*
- * Copyright (c) 2017 Jani Niemelä.
- * License: https://github.com/siquel/irkki/blob/master/LICENSE
- */
+--
+-- Copyright (c) 2017 Jani Niemelä.
+-- License: https://github.com/siquel/irkki/blob/master/LICENSE
+--
 
 newoption {
     trigger = "enable-ssl",
@@ -81,10 +81,15 @@ project "irkki"
             "$(OPENSSL_DIR)/lib"
         }
         
+        if _OPTIONS["enable-ssl"] then
+            links {
+                "ssleay32",
+                "libeay32"
+            }
+        end
+        
         links {
-            "ws2_32",
-            "ssleay32",
-            "libeay32"
+            "ws2_32"
         }
     
     
@@ -93,9 +98,4 @@ project "irkki"
     links {
         "ircclient"
     }
-    
-    if _OPTIONS["enable-ssl"] then
-        links {
-            
-        }
-    end
+   

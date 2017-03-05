@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2017 Jani Niemelä.
+ * License: https://github.com/siquel/irkki/blob/master/LICENSE
+ */
+ 
+ -- Adapted from Branimir Karadžić's toolchain.lua (https://github.com/bkaradzic/bx)
+
 function toolchain(build_dir, lib_dir)
     newoption {
         trigger = "gcc",
